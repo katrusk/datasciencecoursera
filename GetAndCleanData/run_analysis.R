@@ -2,12 +2,10 @@
 ## March 1, 2016
 ## K.J.Rusniak/katrusk
 
-# This script takes an activity data set provided in mutiple sections, and returns 
-# one complete and readable data set containing all experimental observations 
-# (Objective 1 - Objective 4) or returns a data set containing the average value of
-# all measurements by activity and subject (Objective 5).
-# 
-# Original files used:  
+# This script takes an activity data set provided in mutiple sections, creates 
+# one complete and readable data set containing all experimental observations for 
+# mean and stdev variables (Objective 1 - Objective 4), and creates a final data set 
+# containing the ave value of all measurements by activity and subject (Objective 5).
 
 ## Objective 1
 ## merge training and test sets
