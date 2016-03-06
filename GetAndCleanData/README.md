@@ -1,5 +1,4 @@
-# datasciencecoursera
-getting-and-cleaning-data-course-project
+# getting-and-cleaning-data-course-project
 
 The purpose of this project is to take the data set provided and perform the manipulations and transformations necessary to meet the listed project objectives, which also results in a final tidy data set.
 
