@@ -11,11 +11,11 @@
 ## merge training and test sets
 
 # get test data, get activity and subject labels
-test <- tbl_df(read.table("./Desktop/R/GCData/UCI HAR Dataset/test/X_test.txt"))
+test <- tbl_df(read.table("./UCI HAR Dataset/test/X_test.txt"))
 # dim(test); [1] 2947 561
-test_label <- tbl_df(read.table("./Desktop/R/GCData/UCI HAR Dataset/test/y_test.txt"))
+test_label <- tbl_df(read.table("./UCI HAR Dataset/test/y_test.txt"))
 # dim(test_label); [1] 2947 1
-test_subject <- tbl_df(read.table("./Desktop/R/GCData/UCI HAR Dataset/test/subject_test.txt"))
+test_subject <- tbl_df(read.table("./UCI HAR Dataset/test/subject_test.txt"))
 
 # add 'samp' row count column to each test table and merge
 test_prep <- mutate(test, samp = c(1:2947)) # dim: 2947 562
@@ -28,11 +28,11 @@ test_merge <- merge(test_label_prep, test_prep, by = "samp") # dim: 2947 563
 test_merge2 <- merge(test_subject_prep, test_merge, by = "samp") # dim: 2947 564
 
 # get train data, get activity and subject labels
-train <- tbl_df(read.table("./Desktop/R/GCData/UCI HAR Dataset/train/X_train.txt"))
+train <- tbl_df(read.table("./UCI HAR Dataset/train/X_train.txt"))
 # dim(train); [1] 7352 561
-train_label <- tbl_df(read.table("./Desktop/R/GCData/UCI HAR Dataset/train/y_train.txt"))
+train_label <- tbl_df(read.table("./UCI HAR Dataset/train/y_train.txt"))
 # dim(train_label); [1] 7352 1
-train_subject <- tbl_df(read.table("./Desktop/R/GCData/UCI HAR Dataset/train/subject_train.txt"))
+train_subject <- tbl_df(read.table("./UCI HAR Dataset/train/subject_train.txt"))
 # dim(train_subject); [1] 7352 1
 
 # add 'samp' row count column to each train table and merge
@@ -53,7 +53,7 @@ test_train <- merge(test_merge2, train_merge2, all = TRUE)
 ## extract mean and stdev for each measurement
 
 # get variable/column labels and apply to data table
-label_df <- read.table("./Desktop/R/GCData/UCI HAR Dataset/features.txt")
+label_df <- read.table("./UCI HAR Dataset/features.txt")
 label <- as.character(label_df[,2])
 names(test_train)[4:564] <- label[1:561]
 
@@ -93,6 +93,10 @@ names(tt_data2) <- sub("bodybody", "body", names(tt_data2))
 # summarize data set with mean of variables grouped by activity and subject
 by_activity_subject <- group_by(tt_data2, activity, subject) # 10299 89
 by_actsub_ave <- summarize_each(by_activity_subject, funs(mean), 4:89) # 180 88
+
+# write final tidy data set to home directory
+write.table(by_actsub_ave, file = "./mean_measures_by_activity_subject.txt", 
+            row.name = FALSE)
 
 # grouped only by activity
 # by_activity <- group_by(tt_data2, activity) # dim: 10299 89
