@@ -1,6 +1,6 @@
 ## getting-and-cleaning-data-course-project
 ## March 1, 2016
-## K.J.Rusniak
+## K.J.Rusniak/katrusk
 
 # This script takes an activity data set provided in mutiple sections, and returns 
 # one complete and readable data set containing all experimental observations 
