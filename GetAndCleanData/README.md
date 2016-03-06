@@ -14,4 +14,6 @@ README.md
 > README provides a description of all files in datasciencecoursera/GetAndCleanData/ that make up the course assignment submission.  
 
 run_analysis.R
-> The run_analysis script contains the R instructions for manipulating the original activity data set.  Included comments split the file into sections based on stepwise completion of the course assignment objectives.  When the script is executed with 'UCI HAR Dataset' in the working directory, a txt file of the final tidy data set will be created and written to the working directory.
+> The run_analysis script contains the R instructions for manipulating the original activity data set.  Included comments split the script into sections based on stepwise completion of the course assignment objectives.  When the script is executed with 'UCI HAR Dataset' in the working directory, the final tidy data set is printed to the console and a txt file of the final tidy data set is written to the working directory.
+> The dplyr package must be loaded prior to executing run_analysis.
+> Execute the script by calling 'run_analysis()'.
